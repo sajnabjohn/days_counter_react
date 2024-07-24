@@ -5,9 +5,9 @@ import { isWeekday } from '../../utils/helper';
 class BusinessDayCounter {
    // Weekdays count for Task 1
    WeekdaysBetweenTwoDates(startDate: Date, endDate: Date): number {
-      let firstDate = new Date(startDate.toDateString());
+      const firstDate = new Date(startDate.toDateString());
       firstDate.setDate(startDate.getDate() + 1);
-      let secondDate = new Date(endDate.toDateString());
+      const secondDate = new Date(endDate.toDateString());
 
       //validate the start date should be greater than end date
       if (firstDate >= secondDate) {
@@ -24,10 +24,10 @@ class BusinessDayCounter {
       const weekdaysInFullWeeks = fullWeeks * 5;
 
       // Calculate weekdays in the remaining days after full weeks
-      let remainingDays =
+      const remainingDays =
          (secondDate.getTime() - firstDate.getTime()) / oneDay - fullWeeks * 7;
       let weekdaysInRemainingDays = 0;
-      let currentDay = new Date(firstDate);
+      const currentDay = new Date(firstDate);
 
       for (let i = 0; i < remainingDays; i++) {
          if (currentDay.getDay() !== 0 && currentDay.getDay() !== 6) {
@@ -46,9 +46,9 @@ class BusinessDayCounter {
       holidayRules: HolidayRule[],
    ): number {
       let count = 0;
-      let currentDate = new Date(firstDate.toDateString());
+      const currentDate = new Date(firstDate.toDateString());
       currentDate.setDate(currentDate.getDate() + 1);
-      let endDate = new Date(secondDate.toDateString());
+      const endDate = new Date(secondDate.toDateString());
       endDate.setDate(endDate.getDate() - 1);
 
       while (currentDate <= endDate) {

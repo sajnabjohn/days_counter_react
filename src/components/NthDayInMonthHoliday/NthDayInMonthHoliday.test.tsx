@@ -13,4 +13,15 @@ describe('countWeekdays and business days function', () => {
          ),
       ).toBe(9);
    });
+   it("If the calculated holiday date is in the next month, adjust to the previous nth occurrence", () => {
+      const startDate1 = new Date('2024-06-23');
+      const endDate1 = new Date('2024-06-26');
+      expect(
+         new BusinessDayCounter().BusinessDaysBetweenTwoDates(
+            startDate1,
+            endDate1,
+            holidayRules,
+         ),
+      ).toBe(1);
+   });
 });

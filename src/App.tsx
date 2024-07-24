@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BusinessDayCounter from './components/BusinessDayCounter/BusinessDayCounter';
 import { holidayRules } from './utils/constants';
+// import '@testing-library/jest-dom';
 
 const App: React.FC = () => {
    const [firstDate, setFirstDate]        = useState('2024-07-22');
@@ -11,11 +12,12 @@ const App: React.FC = () => {
    const handleCalculate = (
       e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
    ) => {
-      //
+      
       e.preventDefault();
+
       // Convert input strings to Date objects
-      var startDate = new Date(firstDate);
-      var endDate = new Date(secondDate);
+      const startDate = new Date(firstDate);
+      const endDate = new Date(secondDate);
 
       // Calculate weekdays days
       const weekDaysCount = new BusinessDayCounter().WeekdaysBetweenTwoDates(
@@ -23,6 +25,7 @@ const App: React.FC = () => {
          endDate,
       );
       setWeekdays(weekDaysCount);
+
       // Calculate business days
       const businessDaysCount =
          new BusinessDayCounter().BusinessDaysBetweenTwoDates(
@@ -80,7 +83,7 @@ const App: React.FC = () => {
                      </tr>
                      <tr>
                         <td>Weekdays</td>
-                        <td id="weekdays">{weekdays}</td>
+                        <td  id="weekdays">{weekdays}</td>
                      </tr>
                      <tr>
                         <td>Business Days</td>

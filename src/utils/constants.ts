@@ -14,11 +14,16 @@ import {
 
 const FixedHolidayInput: FixedHoliday = { month: 4, day: 25 }; // Anzac Day on April 25th every year
 const WeekendHolidayInput: WeekendHoliday = { month: 1, day: 1 }; // New Year's Day on January 1st, adjusted if it's a weekend
-const NthDayMonthHolidayInput: NthDayMonthHoliday = {
+const QueensBirthday: NthDayMonthHoliday = {
    nth: 2,
    day: 1,
    month: 6,
 }; // Queen's Birthday on the second Monday in June every year
+const fifthMondayJune: NthDayMonthHoliday = {
+   nth: 5,
+   day: 1,
+   month: 6,
+}; // Test sample
 
 // Define holiday rules
 export const holidayRules: HolidayRule[] = [
@@ -28,8 +33,13 @@ export const holidayRules: HolidayRule[] = [
       WeekendHolidayInput.day,
    ),
    new NthDayInMonthHoliday(
-      NthDayMonthHolidayInput.nth,
-      NthDayMonthHolidayInput.day,
-      NthDayMonthHolidayInput.month,
+      QueensBirthday.nth,
+      QueensBirthday.day,
+      QueensBirthday.month,
+   ),
+   new NthDayInMonthHoliday(
+      fifthMondayJune.nth,
+      fifthMondayJune.day,
+      fifthMondayJune.month,
    ),
 ];
