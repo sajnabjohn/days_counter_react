@@ -5,8 +5,8 @@ import { holidayRules } from './utils/constants';
 const App: React.FC = () => {
    const [firstDate, setFirstDate]        = useState('2024-07-22');
    const [secondDate, setSecondDate]      = useState('2024-07-30');
-   const [weekdays, setWeekdays]          = useState<number>(0);
-   const [businessDays, setBusinessDays]  = useState<number>(0);
+   const [weekdays, setWeekdays]          = useState<number | null>(null);
+   const [businessDays, setBusinessDays]  = useState<number | null>(null);
 
    const handleCalculate = (
       e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -70,7 +70,7 @@ const App: React.FC = () => {
                </form>
             </div>
          </div>
-         {/* {weekdays ? ( */}
+         { weekdays !=null ? (
             <div className="tablediv">
                <table id="table">
                   <tbody>
@@ -89,9 +89,9 @@ const App: React.FC = () => {
                   </tbody>
                </table>
             </div>
-         {/* ) : (
+         ) : (
             <></>
-         )} */}
+         )}
       </div>
    );
 };
